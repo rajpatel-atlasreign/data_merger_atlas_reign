@@ -1,5 +1,5 @@
 import pytest
-from data_merge_service.database_connector import establish_database_connection
+from data_merge_service.database_connector import _establish_database_connection
 
 
 def test_create_engine_from_config():
@@ -10,10 +10,10 @@ def test_create_engine_from_config():
             "server_port": "3306",
             "user_name": "root",
             "user_password": "password",
-            "database_name": "nap"
+            "database_name": "valid_db"
         }
     }
-    engine = establish_database_connection(config)
+    engine = _establish_database_connection(config)
     assert engine is not None
 
     # Test with an invalid database configuration
@@ -27,4 +27,4 @@ def test_create_engine_from_config():
         }
     }
     with pytest.raises(Exception):
-        engine = establish_database_connection(config)
+        engine = _establish_database_connection(config)

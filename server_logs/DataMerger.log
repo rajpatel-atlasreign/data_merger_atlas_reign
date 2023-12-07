@@ -1,0 +1,6 @@
+root - INFO - Logger setup complete.
+root - INFO - Configuration file loaded successfully.
+root - INFO - SQLAlchemy engine created successfully.
+root - INFO - Table 'custom_leads' read successfully.
+root - INFO - Table 'custom_lead_products' read successfully.
+root - INFO - Output written to test_output.csv.

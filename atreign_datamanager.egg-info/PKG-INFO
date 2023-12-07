@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: atreign-datamanager
+Version: 0.0.1
+Summary: Data Merger: A Python package for merging data from two tables in a MySQL database. The service reads a configuration file that specifies the details of the merge operation, such as the names of the tables, the keys to join on, the type of join, and the output file name. Easy to use and highly flexible, Data Merger simplifies the process of merging data.
+Home-page: https://github.com/rajpatel-atlasreign/data_merger_atlas_reign
+Author: RAJ PATEL
+Author-email: rajpatel@atlasreign.com
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: ==3.10.*
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: pymysql
+Requires-Dist: sqlalchemy
+Requires-Dist: pandas
+
+
+# Data Merger Service
+
+Data Merger Service is a Python package that provides a simple and flexible way to merge data from two tables in a MySQL database. The service reads a configuration file that specifies the details of the merge operation, such as the names of the tables, the keys to join on, the type of join, and the output file name.
+
+## Installation
+
+You can install DataMerger from PyPI:
+
+```bash
+pip install atreign-datamanager
+```
+
+## Usage
+
+To use Data Merger Service, you need to create a configuration file in JSON format. Hereâ€™s an example:
+
+```json
+{
+    "database_config": {
+        "server_host": "localhost",
+        "server_port": "3306",
+        "user_name": "root",
+        "user_password": "password",
+        "database_name": "database_name"
+    },
+    "data_merge_operations": [
+        {
+            "left_data_table": {
+                "table_name": "table1",
+                "merge_keys": ["key1", "key3"]
+            },
+            "right_data_table": {
+                "table_name": "table2",
+                "merge_keys": ["key2", "key4"]
+            },
+            "merge_type": "inner",
+            "column_suffixes": ["_from_left_table", "_from_right_table"],
+            "output_file_name": "merged_data_output.csv"
+        }
+    ]
+}
+```
+
+Once you have your configuration file, you can perform the merge operation with a single function call:
+
+```python
+from data_merger import perform_merge_from_config
+
+perform_merge_from_config('config.json')
+```
+
+Replace 'config.json' with the path to your actual configuration file.
+
+## Root Directory Structure
+```
+data_merger_atlas_reign/
+â”‚
+â”œâ”€â”€ data_merger/
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”œâ”€â”€ config_loader.py
+â”‚   â”œâ”€â”€ database_connector.py
+â”‚   â”œâ”€â”€ data_operations.py
+â”‚   â””â”€â”€ logger.py
+â”‚
+â”œâ”€â”€ tests/
+â”‚   â”œâ”€â”€ __init__.py
+â”‚   â”œâ”€â”€ test_config_loader.py
+â”‚   â”œâ”€â”€ test_database_connector.py
+â”‚   â””â”€â”€ test_data_operations.py
+â”‚
+â”œâ”€â”€ server_logs/
+â”‚   â””â”€â”€ DataMerger.log
+â”‚
+â”œâ”€â”€ config.json
+â”œâ”€â”€ test_config.json
+â”œâ”€â”€ requirements.txt
+â”œâ”€â”€ setup.py
+â””â”€â”€ main.py
+
+```
+## Contributing
+
+If you want to contribute to this project, please submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.

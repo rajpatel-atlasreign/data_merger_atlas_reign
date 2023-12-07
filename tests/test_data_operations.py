@@ -1,8 +1,8 @@
 import pytest
 import pandas as pd
 
-from data_merge_service.database_connector import establish_database_connection
-from data_merge_service.data_operations import execute_data_merge_operations
+from data_merge_service.database_connector import _establish_database_connection
+from data_merge_service.data_operations import _execute_data_merge_operations
 
 
 def test_perform_data_merge_operations():
@@ -31,8 +31,8 @@ def test_perform_data_merge_operations():
             }
         ]
     }
-    engine = establish_database_connection(config)
-    execute_data_merge_operations(engine, config['data_merge_operations'])
+    engine = _establish_database_connection(config)
+    _execute_data_merge_operations(engine, config['data_merge_operations'])
     result = pd.read_csv('test_output.csv')
     assert not result.empty
 
@@ -61,6 +61,6 @@ def test_perform_data_merge_operations():
             }
         ]
     }
-    engine = establish_database_connection(config)
+    engine = _establish_database_connection(config)
     with pytest.raises(Exception):
-        execute_data_merge_operations(engine, config['data_merge_operations'])
+        _execute_data_merge_operations(engine, config['data_merge_operations'])
