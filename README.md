@@ -8,7 +8,7 @@ Data Merger Service is a Python package that provides a simple and flexible way 
 You can install DataMerger from PyPI:
 
 ```bash
-pip install data_merger
+pip install atreign-datamanager
 ```
 
 ## Usage
