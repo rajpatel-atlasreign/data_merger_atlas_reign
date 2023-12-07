@@ -15,7 +15,7 @@ setup(
                 'flexible, Data Merger simplifies the process of merging data.',
     long_description=open('README.md').read(),
     long_description_content_type='text/markdown',
-    url='https://github.com/yourusername/data_merger',
+    url='https://github.com/rajpatel-atlasreign/data_merger_atlas_reign',
 
     # Dependencies
     install_requires=[
