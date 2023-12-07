@@ -1,0 +1,24 @@
+{
+    "database_config": {
+        "server_host": "localhost",
+        "server_port": "3306",
+        "user_name": "root",
+        "user_password": "password",
+        "database_name": "test_db"
+    },
+    "data_merge_operations": [
+        {
+            "left_data_table": {
+                "table_name": "test_table1",
+                "merge_keys": ["key1"]
+            },
+            "right_data_table": {
+                "table_name": "test_table2",
+                "merge_keys": ["key2"]
+            },
+            "merge_type": "inner",
+            "column_suffixes": ["_from_left_table", "_from_right_table"],
+            "output_file_name": "test_output.csv"
+        }
+    ]
+}
