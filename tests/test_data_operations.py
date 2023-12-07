@@ -13,20 +13,20 @@ def test_perform_data_merge_operations():
             "server_port": "3306",
             "user_name": "root",
             "user_password": "password",
-            "database_name": "nap"
+            "database_name": "test_database"
         },
         "data_merge_operations": [
             {
                 "left_data_table": {
-                    "table_name": "custom_leads",
+                    "table_name": "table1",
                     "merge_keys": ["id"]
                 },
                 "right_data_table": {
-                    "table_name": "custom_lead_products",
-                    "merge_keys": ["custom_lead_id"]
+                    "table_name": "table2",
+                    "merge_keys": ["id"]
                 },
                 "merge_type": "inner",
-                "column_suffixes": ["_custom_leads", "_custom_lead_products"],
+                "column_suffixes": ["_from_left_table", "_from_right_table"],
                 "output_file_name": "test_output.csv"
             }
         ]
