@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     # Basic package information
     name='data_merger',
-    version='0.1.0',
+    version='0.0.0',
     packages=find_packages(),
 
     # Metadata
